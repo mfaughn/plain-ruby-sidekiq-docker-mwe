@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7.0
+
+  sidekiq:
+    build: .
+    depends_on:
+      - redis
+    command: bundle exec sidekiq -r /job_example.rb
+    env_file:
+      - .env
+    volumes:
+      - ./log:/log
+
+  app:
+    build: .
+    depends_on:
+      - sidekiq
+    command: ruby demonstrate.rb
+    env_file:
+      - .env
+    tty: true
