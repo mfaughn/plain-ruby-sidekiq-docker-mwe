@@ -9,4 +9,7 @@ If you would like to manually execute demonstration.rb:
 * `docker-compose run -it app /bin/bash`
 * `ruby demonstrate.rb`
 
-I created this because many other examples I found were, A) Rails-centric and B) more complicated than a simple MWE.
+I created this because many other examples I exhibited one or more of the following:
+* Rails-centric
+* more complicated than a simple MWE
+* incomplete examples
